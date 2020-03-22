@@ -13,12 +13,9 @@ to perform the search.
 
 When search is performed:
 ![Search word](https://github.com/JuansCode/KotlinFragmentDictionary/blob/master/Screenshot_20200322-120917_Kotlin%20Dictionary.jpg "Logo Title Text 1")
-Once you hit search an Image View with Thumbs Up & Down 
-should appear, with the list of items from the Api call.
+Once you hit search, dialog while show while data load, and an Image View with Thumbs Up & Down should appear, with the list of items from the Api call.
 
 When Thumps Up & Down is pressed:
 ![Thumbs Press](https://github.com/JuansCode/KotlinFragmentDictionary/blob/master/Screenshot_20200322-120924_Kotlin%20Dictionary.jpg "Logo Title Text 1")
 Pressing the Thumbs image view should sort the list to decending order based on Thumbs Down, or Thumbs Up number
 
-
-Need to implement a Working Dialog when performing a search
