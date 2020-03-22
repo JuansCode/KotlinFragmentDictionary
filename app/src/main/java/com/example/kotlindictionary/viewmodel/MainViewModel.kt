@@ -25,7 +25,7 @@ class MainViewModel: CustomViewModel() {
     @SuppressLint("CheckResult")
     fun loadData( term : String) {
         onLoading()
-        data.clear()
+//        data.clear()
         disposable?.add(
             apiService.getDefinitionList(term)
                 .compose(rxSingleSchedulers.applySchedulers())
@@ -34,6 +34,7 @@ class MainViewModel: CustomViewModel() {
     }
 
     private fun onSuccess(urbanModel: UrbanResponse) {
+        data.clear()
         urbanModel.list?.forEach { items ->
             if (items != null) {
                 data.add(items)
