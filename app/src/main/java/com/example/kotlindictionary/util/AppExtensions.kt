@@ -28,17 +28,6 @@ inline fun <reified VM : ViewModel> Fragment.viewModel(crossinline provider: () 
     }
 }
 
-inline fun <reified VM : ViewModel> FragmentActivity.viewModel(crossinline provider: () -> VM): Lazy<VM> {
-    return lazy {
-        val factory = object : ViewModelProvider.Factory {
-            override fun <T1 : ViewModel> create(aClass: Class<T1>): T1 {
-                val viewModel = provider.invoke()
-                return viewModel as T1
-            }
-        }
-        ViewModelProviders.of(this, factory).get(VM::class.java)
-    }
-}
 fun ViewGroup.inflate(layoutId: Int, attachToRoot: Boolean = false): View {
     return LayoutInflater.from(context).inflate(layoutId, this, attachToRoot)
 }
@@ -59,9 +48,9 @@ fun Date.formatTo(dateFormat: String, timeZone: TimeZone = TimeZone.getDefault()
 }
 
 
-inline fun Activity.showLoadingDialog(crossinline func: LoadingDialog.() -> Unit?): Lazy<AlertDialog> =
+inline fun Fragment.showLoadingDialog(crossinline func: LoadingDialog.() -> Unit?): Lazy<AlertDialog> =
     lazy {
-        LoadingDialog(this).apply {
+        LoadingDialog(activity!!).apply {
             func()
         }.create()
     }
