@@ -12,11 +12,14 @@ import java.util.ArrayList
 class UrbanAdapter(
     private val urban_list: ArrayList<ListItem>
 ) : CustomRecyclerViewAdapter<ListItem, UrbanAdapter.MyViewHolder>() {
-
-
     override fun updateData(data: List<ListItem>) {
+        if (urban_list.isEmpty()){
+            this.urban_list.addAll(data)
+        }
+        else{
             this.urban_list.clear()
             this.urban_list.addAll(data)
+        }
         notifyDataSetChanged()
     }
 
@@ -44,8 +47,5 @@ class UrbanAdapter(
 
         }
 
-
-
     }
-
 }
