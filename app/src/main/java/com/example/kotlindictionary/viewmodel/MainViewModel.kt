@@ -40,6 +40,7 @@ class MainViewModel: CustomViewModel() {
                 data.add(items)
             }
         }
+        adapter.updateData(data)
         adapter.notifyDataSetChanged()
         dataLoading.value = false
     }
